@@ -2,20 +2,17 @@
 
 import os
 import asyncio
-from typing import Optional
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_TELEGRAM_BOT_TOKEN")
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://YOUR_SUPABASE_URL")
-SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "YOUR_SUPABASE_SERVICE_ROLE_KEY")
-WEBAPP_URL = os.getenv("WEBAPP_URL", "https://YOUR_WEBAPP_URL")
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "YOUR_SUPABASE_ANON_KEY")
 
 
 async def upsert_user(user: types.User) -> None:
-    if "YOUR_" in SUPABASE_URL:
+    if "YOUR_" in SUPABASE_URL or "YOUR_" in SUPABASE_ANON_KEY:
         return
 
     payload = {
@@ -30,8 +27,8 @@ async def upsert_user(user: types.User) -> None:
 
     headers = {
         "Content-Type": "application/json",
-        "apikey": SUPABASE_SERVICE_ROLE_KEY,
-        "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": f"Bearer {SUPABASE_ANON_KEY}",
         "Prefer": "resolution=merge-duplicates",
     }
 
@@ -44,18 +41,10 @@ async def upsert_user(user: types.User) -> None:
                 print("Supabase error", resp.status, text)
 
 
-def build_menu() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [InlineKeyboardButton(text="Открыть Mini App", web_app=types.WebAppInfo(url=WEBAPP_URL))]
-        ]
-    )
-
-
 async def start_handler(message: types.Message) -> None:
     if message.from_user:
         await upsert_user(message.from_user)
-    await message.answer("Открыть Снежный Кликер", reply_markup=build_menu())
+    await message.answer("Открыть Снежный Кликер через меню бота.")
 
 
 async def fallback_handler(message: types.Message) -> None:

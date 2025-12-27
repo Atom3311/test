@@ -1,11 +1,9 @@
 ﻿const CONFIG = {
   SUPABASE_URL: "https://YOUR_SUPABASE_URL",
   SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
-  SUPABASE_SERVICE_ROLE_KEY: "YOUR_SUPABASE_SERVICE_ROLE_KEY",
-  TELEGRAM_BOT_TOKEN: "YOUR_TELEGRAM_BOT_TOKEN",
 };
 
-const useMock = CONFIG.SUPABASE_URL.includes("YOUR_");
+const useMock = CONFIG.SUPABASE_URL.includes("YOUR_") || CONFIG.SUPABASE_ANON_KEY.includes("YOUR_");
 const STORAGE_KEY = "snowclicker:v1";
 
 const ui = {
@@ -307,6 +305,7 @@ async function saveProgressToDb(payload) {
         "Content-Type": "application/json",
         apikey: CONFIG.SUPABASE_ANON_KEY,
         Authorization: `Bearer ${CONFIG.SUPABASE_ANON_KEY}`,
+        Prefer: "resolution=merge-duplicates",
       },
       body: JSON.stringify({
         user_id: payload.user.id,
@@ -468,3 +467,6 @@ seedRating();
 initSnow();
 initUser();
 updateUI();
+
+
+
