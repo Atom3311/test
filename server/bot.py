@@ -2,11 +2,42 @@
 
 import os
 import asyncio
+from pathlib import Path
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
+from dotenv import load_dotenv
 
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_TELEGRAM_BOT_TOKEN")
+env_paths = [
+    Path(__file__).with_name(".env"),
+    Path.cwd() / ".env",
+]
+for env_path in env_paths:
+    if env_path.exists():
+        load_dotenv(dotenv_path=env_path)
+
+
+def load_env_fallback(paths: list[Path]) -> None:
+    for path in paths:
+        if not path.exists():
+            continue
+        for raw in path.read_text(encoding="utf-8-sig").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
+
+
+load_env_fallback(env_paths)
+
+def clean_env(value: str | None) -> str:
+    if not value:
+        return ""
+    return value.strip().strip("\"'").strip()
+
+
+TOKEN = clean_env(os.getenv("TELEGRAM_BOT_TOKEN"))
 SUPABASE_URL = os.getenv("SUPABASE_URL", "https://YOUR_SUPABASE_URL")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "YOUR_SUPABASE_ANON_KEY")
 
@@ -54,8 +85,8 @@ async def fallback_handler(message: types.Message) -> None:
 
 
 async def main() -> None:
-    if "YOUR_" in TOKEN:
-        print("Set TELEGRAM_BOT_TOKEN before запуск")
+    if not TOKEN or ":" not in TOKEN:
+        raise RuntimeError("Invalid TELEGRAM_BOT_TOKEN in server/.env")
 
     bot = Bot(token=TOKEN)
     dp = Dispatcher()
