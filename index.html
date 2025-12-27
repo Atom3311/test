@@ -1,50 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="CSS/style.CSS">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0f2a" />
+  <title>Снежный Кликер - Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg" aria-hidden="true">
+    <div class="aurora"></div>
+    <div class="lights"></div>
+    <div class="snow" id="snow"></div>
+  </div>
 
-<div class="Menu">
-    <div class="bghfdd">Меня зовут Марк.Это мой годовой проект.На тему интересные факты о Аляске!</div>
-</div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">★</div>
+      <div>
+        <div class="title">Снежный Кликер</div>
+        <div class="subtitle">Новогодний буст-марафон</div>
+      </div>
+    </div>
+    <div class="userchip" id="userchip">
+      <div class="userpic" id="userpic">TG</div>
+      <div>
+        <div class="username" id="username">Загрузка...</div>
+        <div class="userstatus" id="userstatus">Mini App</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="pill" data-tab="game">Кликер</button>
+      <button class="pill" data-tab="rating">Рейтинг</button>
+      <button class="pill" data-tab="profile">Профиль</button>
+      <button class="pill" data-tab="win2pay">Win2Pay</button>
+    </nav>
+  </header>
 
-<script src="JS/script.JS"></script>
+  <main class="layout">
+    <section class="panel" id="tab-game">
+      <div class="hero">
+        <div class="glow"></div>
+        <div class="snowflake" id="clicker">
+          <div class="snowcore">❄</div>
+          <div class="ring"></div>
+        </div>
+        <div class="score">
+          <div class="score-label">Снежные монеты</div>
+          <div class="score-value" id="coins">0</div>
+          <div class="score-sub">Скорость: <span id="cps">0</span> монет/сек</div>
+        </div>
+      </div>
 
-<div class="image"><img src="imges/i.webp" alt=""  width="75%"    height="600px"></div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-title">Серия кликов</div>
+          <div class="stat-value" id="streak">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Множитель</div>
+          <div class="stat-value" id="multiplier">x1</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Уровень</div>
+          <div class="stat-value" id="level">1</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Коллекция</div>
+          <div class="stat-value" id="collection">0/12</div>
+        </div>
+      </div>
 
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Бусты</div>
+          <div class="boosts">
+            <button class="boost" data-boost="mult">
+              <span>Морозный множитель</span>
+              <small>x2 на 30 сек</small>
+              <b data-cost="mult">150</b>
+            </button>
+            <button class="boost" data-boost="auto">
+              <span>Авто-елка</span>
+              <small>+5 монет/сек</small>
+              <b data-cost="auto">300</b>
+            </button>
+            <button class="boost" data-boost="lucky">
+              <span>Счастливая звезда</span>
+              <small>Шанс супер-награды</small>
+              <b data-cost="lucky">500</b>
+            </button>
+          </div>
+          <div class="paid-title">Платные бусты</div>
+          <div class="boosts paid">
+            <button class="boost paid-boost" data-paid="frostpack" data-price="99">
+              <span>Набор Мороза</span>
+              <small>x3 на 60 сек</small>
+              <b>₽ 99</b>
+            </button>
+            <button class="boost paid-boost" data-paid="aurora" data-price="149">
+              <span>Северное сияние</span>
+              <small>+20 монет/сек</small>
+              <b>₽ 149</b>
+            </button>
+            <button class="boost paid-boost" data-paid="legend" data-price="249">
+              <span>Легендарный снег</span>
+              <small>Супер-награды 5 мин</small>
+              <b>₽ 249</b>
+            </button>
+          </div>
+          <div class="event-hint">Платные бусты ведут на оплату (заглушка).</div>
+        </div>
 
-<div class="td">От южного конца к западной стороне видели юрты-жилья версты на полторы, и ко оным де юртам за ветром блиско подойтить было нельзя, и пошли подле земли по южную сторону, и стало де быть мелкое место, бросили лот, глубины 7 и 6 сажен, и с того места возвратились назад и стали лаверить подле Большей Земли, чтоб к земле подотить, и стал де быть ветр велик от земли противной И сказал подштюрман, что надлежит им итить и держать курс зюд-вест. И от оной Большей Земли таким великим ветром отнесло, а ветр де был норд-норд-вест. А с четвертого де острова (о. Кинга) пригреб к боту чюкча в малом ялыче, по их называетца кухта, а от боту был в растоянии сажен в шести, и он де, Гвоздев, ево чрез толмача спрашивал о Большей Земли: какая земля, и какие на ней живут люди, и есть ли лес, также и реки, и какой зверь. И он де, чюкча, сказывал толмачу и называл Большей Землей, и на ней де живут их же чюкчи, и лес де имеетца, также и реки, а про зверей сказывал, что имеетца алень дикой, куницы, и лисицы, и бобры решные».</div>
+        <div class="card">
+          <div class="card-title">События</div>
+          <div class="events">
+            <label class="toggle">
+              <input type="checkbox" id="snowstorm" checked />
+              <span>Снежная буря</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="carols" />
+              <span>Колядки x1.5</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="gift" />
+              <span>Подарок дня</span>
+            </label>
+          </div>
+          <div class="event-hint">Эффекты работают и влияют на прогресс.</div>
+        </div>
 
+        <div class="card">
+          <div class="card-title">Миссии</div>
+          <div class="missions">
+            <div class="mission">Сделать 50 кликов <span id="mission-clicks">0/50</span></div>
+            <div class="mission">Собрать 1 000 монет <span id="mission-coins">0/1000</span></div>
+            <div class="mission">Активировать 3 буста <span id="mission-boosts">0/3</span></div>
+          </div>
+          <button class="cta" id="claim">Получить подарочек</button>
+        </div>
+      </div>
+    </section>
 
-<div class="text100">Несколько интересных фактов о Аляске!</div>
+    <section class="panel hidden" id="tab-rating">
+      <div class="panel-head">
+        <h2>Таблица рейтинга</h2>
+        <div class="note">Заглушка на 100 игроков, данные читаются из БД при подключении.</div>
+      </div>
+      <div class="table-wrap">
+        <table class="rating" id="rating">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Игрок</th>
+              <th>Монеты</th>
+              <th>Лига</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
 
+    <section class="panel hidden" id="tab-profile">
+      <div class="panel-head">
+        <h2>Профиль игрока</h2>
+        <div class="note">Профиль подгружается из БД (заглушки).</div>
+      </div>
+      <div class="profile">
+        <div class="avatar" id="profile-avatar">⛄</div>
+        <div class="profile-info">
+          <div class="nickname" id="profile-name">Игрок_Север</div>
+          <div class="badges" id="profile-badges"></div>
+          <div class="profile-grid">
+            <div><b>Сезон</b><span id="profile-season">Зима 2025</span></div>
+            <div><b>Достижения</b><span id="profile-achievements">0/30</span></div>
+            <div><b>Лучший множитель</b><span id="profile-best-mult">x1</span></div>
+            <div><b>Подарков</b><span id="profile-gifts">0</span></div>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="pill" id="edit-profile">Редактировать</button>
+          <button class="pill" id="open-inventory">Инвентарь</button>
+          <button class="pill" id="link-account">Связать аккаунт</button>
+        </div>
+      </div>
+    </section>
 
-<div class="url"><img src="imges/i (1).webp" alt=""  width="45%"   height="500px">  
-</div>
+    <section class="panel hidden" id="tab-win2pay">
+      <div class="panel-head">
+        <h2>Win2Pay</h2>
+        <div class="note">Заглушка платежного окна.</div>
+      </div>
+      <div class="pay">
+        <div class="pay-card">
+          <div class="pay-title">Пополнение снежных монет</div>
+          <div class="pay-amount" id="pay-total">₽ 0.00</div>
+          <div class="pay-field">
+            <label>Сумма</label>
+            <input id="pay-amount" type="text" placeholder="Введите сумму" />
+          </div>
+          <div class="pay-field">
+            <label>Покупка</label>
+            <input id="pay-boost" type="text" placeholder="Буст не выбран" readonly />
+          </div>
+          <div class="pay-field">
+            <label>Способ</label>
+            <div class="pay-methods" id="pay-methods">
+              <button data-method="card">Карта</button>
+              <button data-method="sbp">СБП</button>
+              <button data-method="code">Подарочный код</button>
+            </div>
+          </div>
+          <button class="cta" id="pay-button">Оплатить (заглушка)</button>
+        </div>
+        <div class="pay-info">
+          <h3>Безопасность</h3>
+          <p>Демонстрационный интерфейс. Транзакции не проводятся.</p>
+          <div class="secure">SSL • 3-D Secure • Подтверждение в приложении</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="text500">1.В лесах Аляски обитает разнообразная фауна, включая как хищников, так и травоядных животных, а также различные птицы. Крупными млекопитающими являются лоси, карибу (северные олени), бурые медведи (включая кадьяк), чёрные медведи, волки и канадская рысь. Среди птиц можно отметить белоголового орлана, белых гусей и других видов.</div>
- 
-<div class="text200">2.В лесах Аляски преобладают хвойные деревья, такие как ситхинская ель, туя складчатая (гигантская), а также тсуга западная. Кроме того, встречаются лиственные деревья, такие как береза бумажная, осина, тополь бальзамический. В подлеске можно найти карликовую березу, иву, ольху.    </div>
+  <div class="toast" id="toast">Готово</div>
+  <footer class="footer">Сделано с теплом и снегом ❄</footer>
 
-<div class="text300">3.На Аляске очень большие лесные массивы, занимающие большую часть территории штата. Наиболее крупным национальным лесом в США, расположенным на Аляске, является национальный лес Тонгасс, площадь которого составляет около 69 000 км². В целом, национальные леса Аляски занимают 8,9 миллионов гектар, что больше, чем в любой другой штате США. </div>
-
-<div class="typ"><img src="imges/serene-denali-landscape-1gnh4j0ym4wb3chs.jpg" alt=""  width="45%"  height="600px"></div>
-
-<div class="text1000">4.Аляска - гористая территория, где преобладают хребты и горы. Гора Денали (ранее Мак-Кинли) является самой высокой точкой Северной Америки, а также находится здесь второй по высоте гора Северной Америки - гора Святого Ильи. Аляскинский хребет - самая большая горная система на Аляске, образующая дугу с запада на восток. </div>
-
-<div class="text2000">5.Самая высокая гора на Аляске - Денали (ранее Мак-Кинли) - имеет высоту 6194 метра. Другие высокие горы Аляски включают Форакер (5304 м), Хантер (4442 м), Хэйес (4216 м). 
-</div>
-<div class="nkh"><img src="imges/i (2).webp " alt=""  width="45%"   height="500px"></div>
-
-<div class="text3000">6.На Аляске есть множество рек, среди которых наиболее известные и крупные – река Юкон, река Кускоквим, река Колвилл, река Коппер. Самая длинная река на Аляске – река Юкон, она берет начало в Канаде и протекает через Аляску. </div>
-
-<div class="text4000">7.Самая большая река на Аляске - это река Юкон. Она имеет длину 3190 км и водосборный бассейн 839 200 км². Также стоит отметить реку Кускокуим (9-я крупнейшая река США по среднему расходу воды) и реку Коюкук. </div>
-
-
-<div class="Footer">2025. Все права защищены.</div>
+  <script src="script.js"></script>
 </body>
 </html>
