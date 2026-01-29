@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from services.db import get_db_client, disable_db
+from services.datetime_utils import parse_db_datetime
 
 MAX_MESSAGE_CHARS = 1200
 
@@ -20,7 +21,7 @@ class Message:
     def from_db(data: Dict[str, Any]) -> "Message":
         """Maps a dictionary from the database to a Message dataclass instance."""
         if data.get("created_at"):
-            data["created_at"] = datetime.fromisoformat(data["created_at"])
+            data["created_at"] = parse_db_datetime(data["created_at"])
         return Message(**data)
 
 

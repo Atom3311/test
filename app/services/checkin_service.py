@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import Any, Dict
 
 from services.db import get_db_client, disable_db
+from services.datetime_utils import parse_db_datetime
 
 
 @dataclass
@@ -18,11 +19,8 @@ class Checkin:
 
     @staticmethod
     def from_db(data: Dict[str, Any]) -> "Checkin":
-        if data.get("created_at") and isinstance(data["created_at"], str):
-            val = data["created_at"]
-            if not val.endswith("+00:00"):
-                val += "+00:00"
-            data["created_at"] = datetime.fromisoformat(val)
+        if data.get("created_at"):
+            data["created_at"] = parse_db_datetime(data["created_at"])
         return Checkin(**data)
 
 

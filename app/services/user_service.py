@@ -6,6 +6,7 @@ from typing import Optional, Dict, Any
 
 from postgrest import APIResponse
 from services.db import get_db_client, disable_db
+from services.datetime_utils import parse_db_datetime
 
 
 @dataclass
@@ -39,11 +40,8 @@ class User:
             "last_message_at",
             "last_summary_at",
         ]:
-            if data.get(key) and isinstance(data[key], str):
-                val = data[key]
-                if not val.endswith("+00:00"):
-                    val += "+00:00"
-                data[key] = datetime.fromisoformat(val)
+            if data.get(key):
+                data[key] = parse_db_datetime(data[key])
         return User(**data)
 
 
