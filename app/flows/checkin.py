@@ -5,6 +5,7 @@ from services.messages import send_message
 from services.analytics import log_event
 from services.checkin import parse_checkin
 from services.checkin_service import add_checkin
+from services.message_service import add_message
 from services.memory import get_memory_store
 from services.user_service import set_user_awaiting
 
@@ -19,6 +20,75 @@ CHECKIN_PROMPT = (
 CHECKIN_MOOD_TEXT = "Оцените настроение (0-10)."
 CHECKIN_ANXIETY_TEXT = "Оцените тревогу (0-10)."
 CHECKIN_ENERGY_TEXT = "Оцените энергию (0-10)."
+
+
+def _dedupe(items: list[str]) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for item in items:
+        if item in seen:
+            continue
+        seen.add(item)
+        ordered.append(item)
+    return ordered
+
+
+def build_checkin_feedback(mood: int, anxiety: int, energy: int) -> str:
+    actions: list[str] = []
+    reflections: list[str] = []
+
+    if anxiety >= 7:
+        actions.append("2-3 минуты дыхания 4-6 или упражнение 5-4-3-2-1.")
+        reflections.append(
+            "Что именно сейчас тревожит и что из этого под вашим контролем?"
+        )
+    if mood <= 3:
+        actions.append(
+            "Очень маленький шаг заботы о себе: вода, душ, короткая прогулка."
+        )
+        reflections.append("Что обычно дает вам хоть немного облегчения?")
+    if energy <= 3:
+        actions.append(
+            "Проверьте базовые вещи: сон, еда, вода, короткая пауза 10-15 минут."
+        )
+        reflections.append(
+            "Что сейчас забирает больше всего сил и что можно отложить?"
+        )
+    if mood >= 7 and anxiety <= 3 and energy >= 7:
+        actions.append("Сохраните то, что помогло сегодня, и повторите это завтра.")
+        reflections.append("Что из сегодняшнего стоит закрепить как привычку?")
+
+    if not actions:
+        actions.append(
+            "Сделайте короткую паузу и отметьте дыхание и ощущения в теле."
+        )
+        reflections.append("Что могло повлиять на эти оценки сегодня?")
+
+    actions = _dedupe(actions)[:2]
+    reflections = _dedupe(reflections)[:2]
+
+    parts = [
+        f"Записал: настроение {mood}/10, тревога {anxiety}/10, энергия {energy}/10.",
+        "Что можно сделать сейчас:",
+    ]
+    parts.extend(f"- {item}" for item in actions)
+    parts.append("О чем подумать:")
+    parts.extend(f"- {item}" for item in reflections)
+    parts.append("Если хотите, можем обсудить подробнее.")
+    return "\n".join(parts)
+
+
+def _checkin_history_text(mood: int, anxiety: int, energy: int) -> str:
+    return (
+        f"Чек-ин: настроение {mood}/10, тревога {anxiety}/10, энергия {energy}/10."
+    )
+
+
+def _record_checkin_history(
+    user_id: int, mood: int, anxiety: int, energy: int, response_text: str
+) -> None:
+    add_message(user_id, "user", _checkin_history_text(mood, anxiety, energy))
+    add_message(user_id, "assistant", response_text)
 
 
 async def start_checkin(message: Message) -> None:
@@ -61,10 +131,10 @@ async def handle_checkin_message(message: Message) -> None:
             anxiety=anxiety,
             energy=energy,
         )
-    await send_message(
-        message,
-        "Записал. Хотите обсудить, что повлияло на эти оценки?"
-    )
+    response_text = build_checkin_feedback(mood, anxiety, energy)
+    await send_message(message, response_text)
+    if message.from_user:
+        _record_checkin_history(user_id, mood, anxiety, energy, response_text)
 
 
 async def handle_checkin_callback(callback: CallbackQuery) -> None:
@@ -118,9 +188,9 @@ async def handle_checkin_callback(callback: CallbackQuery) -> None:
             anxiety=anxiety,
             energy=energy,
         )
-        await callback.message.edit_text(
-            "Записал. Хотите обсудить, что повлияло на эти оценки?"
-        )
+        response_text = build_checkin_feedback(mood, anxiety, energy)
+        await callback.message.edit_text(response_text)
+        _record_checkin_history(user_id, mood, anxiety, energy, response_text)
         await callback.answer()
         return
 

@@ -17,11 +17,21 @@ CREATE TABLE IF NOT EXISTS users (
     
     -- Результат последней сессии
     last_outcome TEXT,
+
+    -- Профиль пользователя
+    display_name TEXT,
+    gender TEXT,
+    age INT,
+    about TEXT,
     
     -- Флаги состояний FSM (Finite State Machine)
     awaiting_checkin BOOLEAN DEFAULT FALSE,
     awaiting_goal BOOLEAN DEFAULT FALSE,
     awaiting_outcome BOOLEAN DEFAULT FALSE,
+    awaiting_gender BOOLEAN DEFAULT FALSE,
+    awaiting_name BOOLEAN DEFAULT FALSE,
+    awaiting_age BOOLEAN DEFAULT FALSE,
+    awaiting_about BOOLEAN DEFAULT FALSE,
 
     -- Данные для управления состоянием пользователя
     distress_streak INT DEFAULT 0,

@@ -6,3 +6,4 @@ python-dotenv==1.2.1
 supabase==1.0.3
 supabase-auth==2.27.2
 supabase-functions==2.27.2
+vosk==0.3.44

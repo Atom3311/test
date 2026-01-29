@@ -14,6 +14,10 @@ class User:
     id: int
     created_at: datetime
     username: Optional[str] = None
+    display_name: Optional[str] = None
+    gender: Optional[str] = None
+    age: Optional[int] = None
+    about: str = ""
     summary: str = ""
     focus: str = "общее"
     session_goal: str = ""
@@ -21,6 +25,10 @@ class User:
     awaiting_checkin: bool = False
     awaiting_goal: bool = False
     awaiting_outcome: bool = False
+    awaiting_gender: bool = False
+    awaiting_name: bool = False
+    awaiting_age: bool = False
+    awaiting_about: bool = False
     distress_streak: int = 0
     last_distress_at: Optional[datetime] = None
     last_support_offer_at: Optional[datetime] = None
@@ -165,8 +173,8 @@ async def set_user_awaiting(user_id: int, field: str, value: bool) -> Optional[A
         raise
 
 
-async def set_user_text_field(user_id: int, field: str, value: str) -> Optional[APIResponse]:
-    """Sets a text field for a user."""
+async def set_user_text_field(user_id: int, field: str, value: Any) -> Optional[APIResponse]:
+    """Sets a field value for a user."""
     client = get_db_client()
     try:
         return client.table("users").update({field: value}).eq("id", user_id).execute()

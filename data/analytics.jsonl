@@ -172,3 +172,85 @@
 {"ts": 1769631043.887032, "event": "message_bot", "user": "0b80cfff9fe4", "length": 833}
 {"ts": 1769631044.359613, "event": "message_bot", "user": "0b80cfff9fe4", "length": 820}
 {"ts": 1769631083.2768981, "event": "export_summary", "user": "0b80cfff9fe4"}
+{"ts": 1769675236.9870238, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769675241.227799, "event": "checkin_saved", "user": "114d20708373", "mood": 0, "anxiety": 0, "energy": 0}
+{"ts": 1769676368.879188, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769676372.43133, "event": "checkin_saved", "user": "114d20708373", "mood": 10, "anxiety": 10, "energy": 10}
+{"ts": 1769676379.5691142, "event": "message_user", "user": "114d20708373", "length": 5}
+{"ts": 1769676381.654312, "event": "message_bot", "user": "114d20708373", "length": 575}
+{"ts": 1769678659.4395788, "event": "export_chat", "user": "0b80cfff9fe4"}
+{"ts": 1769680854.471591, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769680861.980623, "event": "checkin_saved", "user": "6a5640556fd4", "mood": 3, "anxiety": 3, "energy": 2}
+{"ts": 1769680919.9343538, "event": "message_user", "user": "6a5640556fd4", "length": 2}
+{"ts": 1769680921.9627688, "event": "message_bot", "user": "6a5640556fd4", "length": 668}
+{"ts": 1769681076.583078, "event": "message_user", "user": "6a5640556fd4", "length": 2}
+{"ts": 1769681078.310861, "event": "message_bot", "user": "6a5640556fd4", "length": 679}
+{"ts": 1769690377.225777, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769690381.154907, "event": "checkin_saved", "user": "0b80cfff9fe4", "mood": 0, "anxiety": 0, "energy": 1}
+{"ts": 1769690600.4955149, "event": "message_user", "user": "0b80cfff9fe4", "length": 10}
+{"ts": 1769690602.8736079, "event": "message_bot", "user": "0b80cfff9fe4", "length": 720}
+{"ts": 1769690610.0721369, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769690612.12926, "event": "message_bot", "user": "0b80cfff9fe4", "length": 938}
+{"ts": 1769690631.4695191, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769690633.410951, "event": "message_bot", "user": "0b80cfff9fe4", "length": 925}
+{"ts": 1769690649.1560938, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769690658.197869, "event": "checkin_saved", "user": "0b80cfff9fe4", "mood": 0, "anxiety": 10, "energy": 10}
+{"ts": 1769690669.7872279, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769690671.962384, "event": "message_bot", "user": "0b80cfff9fe4", "length": 898}
+{"ts": 1769690684.644263, "event": "reset", "user": "0b80cfff9fe4"}
+{"ts": 1769690694.954145, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769690696.8632479, "event": "message_bot", "user": "0b80cfff9fe4", "length": 610}
+{"ts": 1769690895.2108438, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769690896.925976, "event": "message_bot", "user": "0b80cfff9fe4", "length": 633}
+{"ts": 1769691138.0044968, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769691140.556501, "event": "message_bot", "user": "0b80cfff9fe4", "length": 685}
+{"ts": 1769691310.578851, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769691312.32733, "event": "message_bot", "user": "0b80cfff9fe4", "length": 719}
+{"ts": 1769691650.3230112, "event": "message_user", "user": "0b80cfff9fe4", "length": 6}
+{"ts": 1769691652.665643, "event": "message_bot", "user": "0b80cfff9fe4", "length": 747}
+{"ts": 1769691664.962175, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769691666.4731991, "event": "message_bot", "user": "0b80cfff9fe4", "length": 747}
+{"ts": 1769702538.4150631, "event": "message_user", "user": "0b80cfff9fe4", "length": 6}
+{"ts": 1769702540.425384, "event": "message_bot", "user": "0b80cfff9fe4", "length": 276}
+{"ts": 1769702571.884213, "event": "message_user", "user": "0b80cfff9fe4", "length": 41}
+{"ts": 1769702573.819943, "event": "message_bot", "user": "0b80cfff9fe4", "length": 307}
+{"ts": 1769702629.835487, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769702631.8721678, "event": "message_bot", "user": "0b80cfff9fe4", "length": 481}
+{"ts": 1769702656.818372, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769702658.319461, "event": "message_bot", "user": "0b80cfff9fe4", "length": 380}
+{"ts": 1769702674.6651971, "event": "reset", "user": "0b80cfff9fe4"}
+{"ts": 1769702689.7841809, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769702691.500771, "event": "message_bot", "user": "0b80cfff9fe4", "length": 300}
+{"ts": 1769703230.551708, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769703232.2765598, "event": "message_bot", "user": "0b80cfff9fe4", "length": 295}
+{"ts": 1769703255.646064, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769703257.753931, "event": "message_bot", "user": "0b80cfff9fe4", "length": 295}
+{"ts": 1769703611.649259, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769703613.272508, "event": "message_bot", "user": "0b80cfff9fe4", "length": 295}
+{"ts": 1769704131.908826, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769704133.465131, "event": "message_bot", "user": "0b80cfff9fe4", "length": 295}
+{"ts": 1769704145.214756, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769704146.8635, "event": "message_bot", "user": "0b80cfff9fe4", "length": 295}
+{"ts": 1769704349.669878, "event": "message_user", "user": "0b80cfff9fe4", "length": 0}
+{"ts": 1769704351.4622889, "event": "message_bot", "user": "0b80cfff9fe4", "length": 374}
+{"ts": 1769704355.726961, "event": "message_user", "user": "0b80cfff9fe4", "length": 6}
+{"ts": 1769704356.26559, "event": "message_bot", "user": "0b80cfff9fe4", "length": 50}
+{"ts": 1769704362.622296, "event": "reset", "user": "0b80cfff9fe4"}
+{"ts": 1769704815.357443, "event": "message_user", "user": "0b80cfff9fe4", "length": 40}
+{"ts": 1769704817.2851431, "event": "message_bot", "user": "0b80cfff9fe4", "length": 395}
+{"ts": 1769704831.443669, "event": "message_user", "user": "0b80cfff9fe4", "length": 50}
+{"ts": 1769704833.131653, "event": "message_bot", "user": "0b80cfff9fe4", "length": 301}
+{"ts": 1769704926.903239, "event": "message_user", "user": "0b80cfff9fe4", "length": 15}
+{"ts": 1769704928.655009, "event": "message_bot", "user": "0b80cfff9fe4", "length": 321}
+{"ts": 1769704950.662297, "event": "reset", "user": "0b80cfff9fe4"}
+{"ts": 1769704959.6179662, "event": "message_user", "user": "0b80cfff9fe4", "length": 6}
+{"ts": 1769704960.120137, "event": "message_bot", "user": "0b80cfff9fe4", "length": 53}
+{"ts": 1769705055.3470452, "event": "message_user", "user": "0b80cfff9fe4", "length": 27}
+{"ts": 1769705057.11307, "event": "message_bot", "user": "0b80cfff9fe4", "length": 277}
+{"ts": 1769705076.2969012, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769705081.7715552, "event": "checkin_saved", "user": "0b80cfff9fe4", "mood": 0, "anxiety": 0, "energy": 0}
+{"ts": 1769705124.916506, "event": "reset", "user": "0b80cfff9fe4"}
+{"ts": 1769705710.897383, "event": "checkin_start", "user": "572a6f191892"}
+{"ts": 1769705729.535464, "event": "checkin_saved", "user": "0b80cfff9fe4", "mood": 10, "anxiety": 0, "energy": 10}
+{"ts": 1769705875.3349419, "event": "message_user", "user": "0b80cfff9fe4", "length": 44}
+{"ts": 1769705877.4346151, "event": "message_bot", "user": "0b80cfff9fe4", "length": 356}

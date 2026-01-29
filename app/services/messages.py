@@ -1,6 +1,7 @@
-from typing import Any, Optional
+from pathlib import Path
+from typing import Any, Optional, Union
 
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import CallbackQuery, Message, FSInputFile
 
 from services.memory import get_memory_store
 
@@ -23,12 +24,52 @@ async def send_message(
     return sent
 
 
+async def send_photo(
+    message: Message,
+    photo: Union[str, Path],
+    *,
+    caption: Optional[str] = None,
+    track: bool = True,
+    **kwargs: Any,
+) -> Message:
+    path = Path(photo)
+    sent = await message.answer_photo(
+        FSInputFile(path), caption=caption, **kwargs
+    )
+    if track:
+        _record_message(
+            message.from_user.id if message.from_user else None, sent.message_id
+        )
+    return sent
+
+
 async def send_message_from_callback(
     callback: CallbackQuery, text: str, *, track: bool = True, **kwargs: Any
 ) -> Optional[Message]:
     if callback.message is None:
         return None
     sent = await callback.message.answer(text, **kwargs)
+    if track:
+        _record_message(
+            callback.from_user.id if callback.from_user else None, sent.message_id
+        )
+    return sent
+
+
+async def send_photo_from_callback(
+    callback: CallbackQuery,
+    photo: Union[str, Path],
+    *,
+    caption: Optional[str] = None,
+    track: bool = True,
+    **kwargs: Any,
+) -> Optional[Message]:
+    if callback.message is None:
+        return None
+    path = Path(photo)
+    sent = await callback.message.answer_photo(
+        FSInputFile(path), caption=caption, **kwargs
+    )
     if track:
         _record_message(
             callback.from_user.id if callback.from_user else None, sent.message_id

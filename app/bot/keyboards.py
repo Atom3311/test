@@ -9,13 +9,13 @@ from aiogram.types import (
 MAIN_MENU_MY_STATE = "🧠 Моё состояние"
 MAIN_MENU_HELP = "🚑 Быстрая помощь"
 MAIN_MENU_SETTINGS = "⚙️ Настройки и данные"
-MAIN_MENU_CHAT = "💬 Общение"
+MAIN_MENU_CHAT = "💬 Беседа"
 
 # --- Inline Keyboard Actions & Labels ---
 SUPPORT_MENU_BREATH = "Дыхание 4-6"
 SUPPORT_MENU_GROUND = "Упражнение 5-4-3-2-1"
 SUPPORT_MENU_COMPASSION = "Добрые слова себе"
-CONSENT_YES_TEXT = "Я согласен"
+CONSENT_YES_TEXT = "Далее"
 
 
 def main_menu_keyboard() -> ReplyKeyboardMarkup:
@@ -44,7 +44,6 @@ def my_state_keyboard() -> InlineKeyboardMarkup:
                     text="Оценить состояние", callback_data="checkin:prompt"
                 )
             ],
-            [InlineKeyboardButton(text="Изменить тему", callback_data="focus:prompt")],
         ]
     )
 
@@ -53,6 +52,9 @@ def settings_and_data_keyboard() -> InlineKeyboardMarkup:
     """Inline keyboard for settings and data management."""
     return InlineKeyboardMarkup(
         inline_keyboard=[
+            [InlineKeyboardButton(text="Анкета", callback_data="profile:start")],
+            [InlineKeyboardButton(text="Изменить тему", callback_data="focus:prompt")],
+            [InlineKeyboardButton(text="Проверить голосовые", callback_data="stt:check")],
             [InlineKeyboardButton(text="Экспорт данных", callback_data="export:start")],
             [
                 InlineKeyboardButton(
@@ -79,6 +81,21 @@ def consent_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text=CONSENT_YES_TEXT, callback_data="consent_yes")],
+        ]
+    )
+
+
+def onboarding_keyboard(
+    primary_text: str,
+    primary_callback: str,
+    *,
+    skip_text: str = "Пропустить",
+    skip_callback: str = "onboard:skip",
+) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=primary_text, callback_data=primary_callback)],
+            [InlineKeyboardButton(text=skip_text, callback_data=skip_callback)],
         ]
     )
 
@@ -140,5 +157,24 @@ def support_menu_keyboard() -> InlineKeyboardMarkup:
                     text=SUPPORT_MENU_COMPASSION, callback_data="support:compassion"
                 )
             ],
+        ]
+    )
+
+
+def gender_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="Мужчина", callback_data="profile:gender:male"),
+                InlineKeyboardButton(text="Женщина", callback_data="profile:gender:female"),
+            ],
+        ]
+    )
+
+
+def about_skip_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Заполню позже 🙂", callback_data="profile:skip_about")]
         ]
     )

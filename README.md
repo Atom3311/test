@@ -30,6 +30,8 @@ source .venv/bin/activate
 pip install -r requirements.txt  
 cp .env.example .env  
 заполните BOT_TOKEN, GROQ_API_KEY, SUPABASE_URL и SUPABASE_KEY в .env  
+если нужны голосовые сообщения — установите ffmpeg и добавьте VOSK_MODEL_PATH  
+для отладки можно добавить STT_ECHO=1 (бот покажет расшифровку)  
 выполните `database_schema.sql` в Supabase  
 python app/main.py
 
@@ -37,6 +39,7 @@ python app/main.py
 - /start — начать
 - /checkin — оценка состояния
 - /focus — выбрать тему
+- /info — анкета пользователя
 - /export — экспорт переписки
 - /reset — сбросить контекст
 

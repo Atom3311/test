@@ -1,3 +1,5 @@
+from typing import Optional
+
 from aiogram.types import Message
 
 from bot.keyboards import checkin_start_keyboard
@@ -46,9 +48,10 @@ def _decorate_therapy_response(user_id: int, text: str) -> str:
     return updated
 
 
-async def handle_therapy_message(message: Message) -> None:
+async def handle_therapy_message(message: Message, *, text_override: Optional[str] = None) -> None:
     user_id = message.from_user.id if message.from_user else 0
-    text = (message.text or "").strip()
+    raw_text = text_override if text_override is not None else message.text
+    text = (raw_text or "").strip()
 
     # Get user state and history from DB
     user = get_or_create_user(user_id)
@@ -70,6 +73,17 @@ async def handle_therapy_message(message: Message) -> None:
     # context = build_context(user) # This needs to be adapted for the User object
     context = ""
 
+    profile_parts: list[str] = []
+    if user.display_name:
+        profile_parts.append(f"Имя: {user.display_name}")
+    if user.gender:
+        profile_parts.append(f"Пол: {user.gender}")
+    if user.age:
+        profile_parts.append(f"Возраст: {user.age}")
+    if user.about:
+        profile_parts.append(f"О себе: {user.about}")
+    profile_text = "; ".join(profile_parts)
+
     prompt = build_therapy_prompt(
         context=context,
         summary=user.summary,
@@ -78,6 +92,7 @@ async def handle_therapy_message(message: Message) -> None:
         focus=user.focus,
         session_goal=user.session_goal,
         last_outcome=user.last_outcome,
+        profile=profile_text,
     )
     response = await generate_response(prompt=prompt, system_prompt=THERAPY_SYSTEM_PROMPT)
     if message.from_user:
