@@ -12,6 +12,7 @@ from services.messages import (
     send_photo_from_callback,
 )
 from flows.profile import start_profile
+from flows.offer import send_offer_from_callback
 
 BOT_DISPLAY_NAME = "Аврора"
 PRIVACY_POLICY_URL = ""
@@ -20,7 +21,6 @@ ASSETS_DIR = Path(__file__).resolve().parents[1] / "assets" / "onboarding"
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png")
 WHY_IMAGE = "why"
 METHODS_IMAGE = "methods"
-AI_IMAGE = "ai"
 CRISIS_IMAGE = "crisis"
 REVIEW_IMAGES = (
     "review_1",
@@ -56,7 +56,9 @@ TOPICS_TEXT = (
     "… и многое другое."
 )
 
-REVIEWS_COUNT_TEXT = "Уже более 1 000 человек попробовали этот формат."
+OFFER_NEXT_TEXT = "Перейти к отзывам пользователей?"
+
+REVIEWS_COUNT_TEXT = "Уже более 37 544 человек попробовали этот формат."
 REVIEWS_TEXT = (
     "Ниже — несколько отзывов пользователей.\n"
     f"{REVIEWS_COUNT_TEXT}"
@@ -68,17 +70,9 @@ METHODS_TEXT = (
     "Мы будем вместе отслеживать, что реально помогает именно тебе."
 )
 
-AI_TEXT = (
-    "Я работаю на современных языковых моделях и стараюсь быть полезной "
-    "в разговоре.\n\n"
-    "Но я не заменяю живого специалиста и могу ошибаться — важные решения "
-    "лучше обсуждать с профессионалом."
-)
-
 CRISIS_TEXT = (
-    "Я стараюсь звучать как настоящий психолог, но все же я нейросеть, "
-    "которая дает базовую поддержку.\n\n"
-    "Если ситуация тяжелая, пожалуйста, обращайся к специалистам-людям "
+    "Я могу дать базовую поддержку и помочь наметить шаги.\n\n"
+    "Если ситуация тяжелая, пожалуйста, обращайся к специалистам "
     "или в службы помощи."
 )
 
@@ -182,6 +176,15 @@ async def handle_onboarding_callback(callback: CallbackQuery) -> None:
             callback,
             TOPICS_TEXT,
             reply_markup=onboarding_keyboard(
+                "Тарифы и оплата", "onboard:offer"
+            ),
+        )
+    elif data == "onboard:offer":
+        await send_offer_from_callback(callback)
+        await send_message_from_callback(
+            callback,
+            OFFER_NEXT_TEXT,
+            reply_markup=onboarding_keyboard(
                 "Отзывы пользователей", "onboard:reviews"
             ),
         )
@@ -201,19 +204,10 @@ async def handle_onboarding_callback(callback: CallbackQuery) -> None:
             METHODS_IMAGE,
             METHODS_TEXT,
             reply_markup=onboarding_keyboard(
-                "Круто, а откуда ты все знаешь?", "onboard:ai"
-            ),
-        )
-    elif data == "onboard:ai":
-        await _send_photo_or_text_from_callback(
-            callback,
-            AI_IMAGE,
-            AI_TEXT,
-            reply_markup=onboarding_keyboard(
                 "А если у меня тяжелая ситуация?", "onboard:crisis"
             ),
         )
-    elif data == "onboard:crisis":
+    elif data in {"onboard:crisis", "onboard:ai"}:
         await _send_photo_or_text_from_callback(
             callback,
             CRISIS_IMAGE,

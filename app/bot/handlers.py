@@ -31,6 +31,7 @@ from flows.onboarding import (
     handle_onboarding_callback,
     start_onboarding,
 )
+from flows.offer import handle_offer_callback, send_offer
 from flows.profile import (
     handle_about_message,
     handle_about_skip,
@@ -159,6 +160,11 @@ async def cmd_support(message: Message) -> None:
     await send_support_menu(message)
 
 
+@router.message(Command("tariffs"))
+async def cmd_tariffs(message: Message) -> None:
+    await send_offer(message)
+
+
 @router.message(Command("info"))
 async def cmd_info(message: Message) -> None:
     await start_profile(message)
@@ -217,6 +223,11 @@ async def on_consent_no(callback: CallbackQuery) -> None:
 @router.callback_query(F.data.startswith("onboard:"))
 async def on_onboard_callback(callback: CallbackQuery) -> None:
     await handle_onboarding_callback(callback)
+
+
+@router.callback_query(F.data.startswith("offer:"))
+async def on_offer_callback(callback: CallbackQuery) -> None:
+    await handle_offer_callback(callback)
 
 
 @router.callback_query(F.data.startswith("profile:gender:"))

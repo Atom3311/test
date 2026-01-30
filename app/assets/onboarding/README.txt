@@ -1,7 +1,6 @@
 Place onboarding images here (jpg/jpeg/png are supported):
 - why.jpg (or .png)
 - methods.jpg (or .png)
-- ai.jpg (or .png)
 - crisis.jpg (or .png)
 - review_1.jpg (or .png)
 - review_2.jpg (or .png)

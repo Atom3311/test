@@ -178,3 +178,39 @@ def about_skip_keyboard() -> InlineKeyboardMarkup:
             [InlineKeyboardButton(text="Заполню позже 🙂", callback_data="profile:skip_about")]
         ]
     )
+
+
+def offer_keyboard(
+    *,
+    pay_ru_url: str = "",
+    pay_intl_url: str = "",
+    support_url: str = "",
+) -> InlineKeyboardMarkup:
+    rows = []
+    if pay_ru_url:
+        rows.append(
+            [InlineKeyboardButton(text="Купить (из России)", url=pay_ru_url)]
+        )
+    else:
+        rows.append(
+            [InlineKeyboardButton(text="Купить (из России)", callback_data="offer:pay:ru")]
+        )
+    if pay_intl_url:
+        rows.append(
+            [InlineKeyboardButton(text="Купить (не из России)", url=pay_intl_url)]
+        )
+    else:
+        rows.append(
+            [
+                InlineKeyboardButton(
+                    text="Купить (не из России)", callback_data="offer:pay:intl"
+                )
+            ]
+        )
+    if support_url:
+        rows.append([InlineKeyboardButton(text="Техподдержка", url=support_url)])
+    else:
+        rows.append(
+            [InlineKeyboardButton(text="Техподдержка", callback_data="offer:support")]
+        )
+    return InlineKeyboardMarkup(inline_keyboard=rows)
