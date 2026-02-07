@@ -6518,3 +6518,92 @@ groq.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached
 2026-01-30 14:46:58,464 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/rpc/increment_messages_counter "HTTP/1.1 204 No Content"
 2026-01-30 14:47:00,092 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages "HTTP/1.1 201 Created"
 2026-01-30 14:47:00,095 | INFO | aiogram.event | Update id=931213894 is handled. Duration 3662 ms by bot id=8537896089
+2026-02-05 22:44:07,905 | INFO | aiogram.dispatcher | Start polling
+2026-02-05 22:44:08,628 | INFO | aiogram.dispatcher | Run polling for bot @Avrora_Linn_bot id=8537896089 - 'Avrora Linn'
+2026-02-05 22:44:12,774 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:12,775 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8537896089)
+2026-02-05 22:44:18,335 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:18,335 | WARNING | aiogram.dispatcher | Sleep for 1.303367 seconds and try again... (tryings = 1, bot id = 8537896089)
+2026-02-05 22:44:24,867 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:24,867 | WARNING | aiogram.dispatcher | Sleep for 1.671124 seconds and try again... (tryings = 2, bot id = 8537896089)
+2026-02-05 22:44:32,467 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:32,467 | WARNING | aiogram.dispatcher | Sleep for 2.126335 seconds and try again... (tryings = 3, bot id = 8537896089)
+2026-02-05 22:44:35,218 | INFO | aiogram.dispatcher | Connection established (tryings = 4, bot id = 8537896089)
+2026-02-05 22:44:36,455 | INFO | aiogram.event | Update id=931213930 is handled. Duration 1234 ms by bot id=8537896089
+2026-02-05 22:44:38,747 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:38,748 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8537896089)
+2026-02-05 22:44:43,898 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-05 22:44:43,898 | WARNING | aiogram.dispatcher | Sleep for 1.167045 seconds and try again... (tryings = 1, bot id = 8537896089)
+2026-02-07 10:23:05,349 | INFO | aiogram.dispatcher | Start polling
+2026-02-07 10:23:06,442 | INFO | aiogram.dispatcher | Run polling for bot @Avrora_Linn_bot id=8537896089 - 'Avrora Linn'
+2026-02-07 10:28:27,704 | ERROR | aiogram.dispatcher | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-02-07 10:28:27,704 | WARNING | aiogram.dispatcher | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8537896089)
+2026-02-07 10:28:39,039 | INFO | aiogram.dispatcher | Connection established (tryings = 1, bot id = 8537896089)
+2026-02-07 10:30:14,003 | INFO | aiogram.dispatcher | Start polling
+2026-02-07 10:30:14,527 | INFO | aiogram.dispatcher | Run polling for bot @Avrora_Linn_bot id=8537896089 - 'Avrora Linn'
+2026-02-07 10:32:42,779 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:32:43,247 | INFO | aiogram.event | Update id=931213933 is handled. Duration 2191 ms by bot id=8537896089
+2026-02-07 10:32:45,220 | INFO | aiogram.event | Update id=931213934 is handled. Duration 411 ms by bot id=8537896089
+2026-02-07 10:32:46,478 | INFO | aiogram.event | Update id=931213935 is handled. Duration 207 ms by bot id=8537896089
+2026-02-07 10:32:47,495 | INFO | aiogram.event | Update id=931213936 is handled. Duration 309 ms by bot id=8537896089
+2026-02-07 10:32:50,316 | INFO | aiogram.event | Update id=931213937 is handled. Duration 1844 ms by bot id=8537896089
+2026-02-07 10:32:53,633 | INFO | aiogram.event | Update id=931213938 is handled. Duration 344 ms by bot id=8537896089
+2026-02-07 10:32:55,321 | INFO | aiogram.event | Update id=931213939 is handled. Duration 356 ms by bot id=8537896089
+2026-02-07 10:32:56,523 | INFO | aiogram.event | Update id=931213940 is handled. Duration 305 ms by bot id=8537896089
+2026-02-07 10:32:58,779 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:32:58,942 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:32:59,280 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:32:59,517 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:32:59,736 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:32:59,948 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:00,197 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:00,476 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:00,713 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:00,948 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:01,245 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:01,444 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:01,721 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:01,943 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.8537896089 "HTTP/1.1 200 OK"
+2026-02-07 10:33:02,489 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:02,697 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:02,976 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:03,576 | INFO | aiogram.event | Update id=931213943 is handled. Duration 1381 ms by bot id=8537896089
+2026-02-07 10:33:04,482 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:04,728 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:04,964 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:05,176 | INFO | aiogram.event | Update id=931213941 is handled. Duration 7065 ms by bot id=8537896089
+2026-02-07 10:33:05,205 | INFO | aiogram.event | Update id=931213944 is handled. Duration 937 ms by bot id=8537896089
+2026-02-07 10:33:05,261 | INFO | aiogram.event | Update id=931213942 is handled. Duration 5060 ms by bot id=8537896089
+2026-02-07 10:33:14,310 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:33:14,544 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:14,789 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:15,048 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:15,323 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:15,456 | INFO | aiogram.event | Update id=931213945 is handled. Duration 1872 ms by bot id=8537896089
+2026-02-07 10:33:18,069 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:33:18,317 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:18,565 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:18,818 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:19,077 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:19,268 | INFO | aiogram.event | Update id=931213946 is handled. Duration 1368 ms by bot id=8537896089
+2026-02-07 10:33:22,464 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:33:22,665 | INFO | aiogram.event | Update id=931213947 is handled. Duration 622 ms by bot id=8537896089
+2026-02-07 10:34:24,441 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:24,611 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:24,866 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:25,113 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:25,225 | INFO | aiogram.event | Update id=931213948 is handled. Duration 2188 ms by bot id=8537896089
+2026-02-07 10:34:27,886 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:34:28,131 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:28,424 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages "HTTP/1.1 201 Created"
+2026-02-07 10:34:28,648 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/rpc/increment_messages_counter "HTTP/1.1 204 No Content"
+2026-02-07 10:34:28,881 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages "HTTP/1.1 201 Created"
+2026-02-07 10:34:29,002 | INFO | aiogram.event | Update id=931213949 is handled. Duration 1436 ms by bot id=8537896089
+2026-02-07 10:34:43,531 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:34:43,750 | INFO | httpx | HTTP Request: PATCH https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?id=eq.1973039502 "HTTP/1.1 200 OK"
+2026-02-07 10:34:44,000 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/users?select=%2A&id=eq.1973039502&limit=1 "HTTP/1.1 200 OK"
+2026-02-07 10:34:44,265 | INFO | httpx | HTTP Request: GET https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages?select=%2A&user_id=eq.1973039502&order=created_at.desc&limit=10 "HTTP/1.1 200 OK"
+2026-02-07 10:34:44,502 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages "HTTP/1.1 201 Created"
+2026-02-07 10:34:44,750 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/rpc/increment_messages_counter "HTTP/1.1 204 No Content"
+2026-02-07 10:34:46,258 | INFO | httpx | HTTP Request: POST https://fkjhfqtmldzunzcnxgan.supabase.co/rest/v1/messages "HTTP/1.1 201 Created"
+2026-02-07 10:34:46,261 | INFO | aiogram.event | Update id=931213950 is handled. Duration 5477 ms by bot id=8537896089
